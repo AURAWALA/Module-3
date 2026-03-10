@@ -1,6 +1,5 @@
 import cv2
 
-from matplotlib import image
 import numpy as np
 
 def apply_filter(image, ftype):
@@ -46,7 +45,9 @@ def apply_filter(image, ftype):
 
         gray = cv2.medianBlur(gray, 5)
 
-        edges = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 9, 9)
+        edges = cv2.adaptiveThreshold(
+            gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C,                  cv2.THRESH_BINARY, 9, 9
+            )
 
         
 
@@ -54,7 +55,7 @@ def apply_filter(image, ftype):
 
         img = cv2.bitwise_and(color, color, mask=edges)
 
-        return img
+    return img
 
 def main():
 
